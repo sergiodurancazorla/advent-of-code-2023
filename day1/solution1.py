@@ -1,20 +1,10 @@
 import os
+import re
 
-def calculate_number(string : str)-> int:
-    string_reversed = string[::-1]
-    
-    first_number = _extract_number(string)
-    last_number = _extract_number(string_reversed)
-    
-    number = int(first_number + last_number)
-    return number
+def calculate_number(string : str)-> int:    
+    numbers = ''.join(re.findall(r'\d', string))
+    return int(numbers[0] + numbers[-1])
 
-def _extract_number(string: str):
-    for char in string:
-        if char.isdigit():
-            last_number = char
-            break
-    return last_number
     
 def calibrate_trebuchet(file_name):
     current_path = os.path.dirname(__file__)
@@ -29,4 +19,4 @@ def calibrate_trebuchet(file_name):
     return result
     
 
-print(calibrate_trebuchet('input1.txt'))
+print(calibrate_trebuchet('input.txt'))

@@ -35,7 +35,7 @@ def calculate_adjacents(matrix: List[List]):
         temp_number = ''
         index_temp_number = []
         for column, column_value in enumerate(line_value):
-            if is_valid_symbol(column_value) and column_value == GEAR_RATIO:
+            if column_value == GEAR_RATIO:
                 special_chars_index.append(f'{line}-{column}')
             if column_value.isdigit():
                 temp_number += column_value
